@@ -1,13 +1,13 @@
 Lab 1 - Create Origin Pool
 ==========================
-In this first part of the lab, you will create an origin pool pointing to the service of the F5xcdemo workload you created in the previous lab.  
+In this first part of the lab, you will create an origin pool pointing to the service of the F5xcdemo workload you created in the previous lab.
 
 **Exercise 1: Create Origin Pool**
 
 #. Navigate the left-side menu to **Manage -> Load Balancers**, then click **Origin Pools**.
 
    |origin_pool|
-   
+
 #. Click the **Add Origin Pool** button.
 
    |origin_pool_add|
@@ -24,11 +24,11 @@ In this first part of the lab, you will create an origin pool pointing to the se
 
     - **Select Type of Origin Server**: K8s Service Name of Origin Server on given Sites
     - **Service Name**: <firstinitallastinitial-workload>.<your namespace> (eg: asmith-workload.grand-marten This will map to the service name of your vK8s workload and XC tenant namespace)
-    - **Site or Virtual Site**: Virtual Site select shared/agility-k82-site
+    - **Site or Virtual Site**: Virtual Site select shared/appworld2025-k8s-vsite
     - **Select Network on the site**: vK8s Networks on Site
 
    |origin_pools_menu|
- 
+
 #. Click on **Apply** to return to the previous screen
 
 #. Click the **Save and Exit** button to close the **Origin Pool** dialogue.
