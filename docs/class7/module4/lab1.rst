@@ -1,11 +1,11 @@
-Lab 1 - Configure your Jumpbox to access your virtual K8s
+Lab 1 - Configure your jumphost to access your virtual K8s
 =========================================================
 
 F5 Distributed Cloud App Stack provides the ability to manage your vK8s namespace via command line with `kubectl`
 
-In this lab, we will learn perform the following:
+In this lab, we will learn about and perform the following:
 
--  Download the kubeconfig, and then upload the kubeconfig file to the jumpbox to allow for access your virtual k8s using native kubectl commands.
+-  Download the **kubeconfig**, and then upload the **kubeconfig** file to the jumphost to allow for access your virtual k8s using native kubectl commands.
 
 **Core Concepts**
 
@@ -39,28 +39,35 @@ In this lab, we will learn perform the following:
    .. image:: ../images/kubeconfigexpirydate.png
       :width: 650pt
 
-#. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
+   |
 
-#. Click the config kubeconfig is downloaded, and follow the Kubernetes documentation to configure your local kubctl tool.
+   Click **Download Credential**. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
 
-    `Organizing Cluster Access Using kubeconfig Files <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
+#. From the lab components view, find the jumphost and click the *Access* button. From the access list, select **File Browser**.
 
-#. If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
+   .. note:: 
+      If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded **kubeconfig** file.
+      To try this, follow the Kubernetes documentation to configure your local kubctl tool.
 
-   For the purposes of this lab, we will use the jumpbox to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the jumpbox.
+       `Organizing Cluster Access Using kubeconfig Files <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
 
-   From the lab components view, find the jumpbox and click the *Access* button. From the access list, select **File Browser**.
+      For the purposes of this lab, we will use the jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the **kubeconfig** file to the jumphost.
 
-.. image:: ../images/filebrowser-launch.png
-   :width: 650pt
+   .. image:: ../images/M4-L1-filebrowser-launch.png
+      :width: 650pt
 
-Login with *admin/admin* credentials.
+#. Login with *admin/admin* credentials.
 
-.. image:: ../images/filebrowser-login.png
-   :width: 350pt
+   .. image:: ../images/M4-L1-filebrowser-login.png
+      :width: 350pt
 
-Within File Browser, click the **Upload** upload icon, `Choose File` and then select the kubeconfig file you downloaded. Select this file and complete the upload.
 
-.. image:: ../images/filebrowser-upload.png
-   :width: 300pt
+#. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
 
+   .. image:: ../images/M4-L1-filebrowser-upload.png
+      :width: 300pt
+
+   Make sure the **kubeconfig** file appears in File Browser.
+
+   .. image:: ../images/M4-L1-filebrowser-file.png
+      :width: 300pt
