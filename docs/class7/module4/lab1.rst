@@ -49,7 +49,7 @@ In this lab, we will learn about and perform the following:
 
    From the lab components view, find the jumpbox and click the *Access* button. From the access list, select **File Browser**.
 
-.. image:: ../images/filebrowser-launch.png
+.. image:: ../images/M4-L1-filebrowser-launch.png
    :width: 650pt
 
 #. Login with *admin/admin* credentials.
