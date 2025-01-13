@@ -32,12 +32,12 @@ In this lab, we will learn about and perform the following:
 #. Click the three dots under the "Action" column and then click **Kubeconfig**.
 
    .. image:: ../images/distributedappclickvirtualk8kubeconfig-updated.png
-      :width: 650pt
+      :width: 500pt
 
 #. When prompted to select an expiration date, pick a future date that will give you adequate time to complete the lab.
 
    .. image:: ../images/kubeconfigexpirydate.png
-      :width: 650pt
+      :width: 500pt
 
    |
 
@@ -54,12 +54,12 @@ In this lab, we will learn about and perform the following:
       For the purposes of this lab, we will use the jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the **kubeconfig** file to the jumphost.
 
    .. image:: ../images/M4-L1-filebrowser-launch.png
-      :width: 650pt
+      :width: 450pt
 
 #. Login with *admin/admin* credentials.
 
    .. image:: ../images/M4-L1-filebrowser-login.png
-      :width: 350pt
+      :width: 300pt
 
 
 #. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
