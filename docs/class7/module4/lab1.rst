@@ -1,11 +1,11 @@
-Lab 1 - Configure your Jumpbox to access your virtual K8s
+Lab 1 - Configure your jumphost to access your virtual K8s
 =========================================================
 
 F5 Distributed Cloud App Stack provides the ability to manage your vK8s namespace via command line with `kubectl`
 
-In this lab, we will learn perform the following:
+In this lab, we will learn about and perform the following:
 
--  Download the kubeconfig, and then upload the kubeconfig file to the jumpbox to allow for access your virtual k8s using native kubectl commands.
+-  Download the **kubeconfig**, and then upload the **kubeconfig** file to the jumphost to allow for access your virtual k8s using native kubectl commands.
 
 **Core Concepts**
 
@@ -39,7 +39,9 @@ In this lab, we will learn perform the following:
    .. image:: ../images/kubeconfigexpirydate.png
       :width: 650pt
 
-#. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
+   |
+
+   Click **Download Credential**. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
 
 #. If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
 
@@ -50,14 +52,18 @@ In this lab, we will learn perform the following:
 .. image:: ../images/filebrowser-launch.png
    :width: 650pt
 
-Login with *admin/admin* credentials.
+#. Login with *admin/admin* credentials.
 
-.. image:: ../images/filebrowser-login.png
-   :width: 350pt
+   .. image:: ../images/M4-L1-filebrowser-login.png
+      :width: 350pt
 
-Within File Browser, click the **Upload** upload icon, `Choose File` and then select the kubeconfig file you downloaded. Select this file and complete the upload.
 
-.. image:: ../images/filebrowser-upload.png
-   :width: 300pt
+#. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
 
-Once completed, you should see the kubeconfig file in the file listing. You can now close the File Browser tab.
+   .. image:: ../images/M4-L1-filebrowser-upload.png
+      :width: 300pt
+
+   Make sure the **kubeconfig** file appears in File Browser.
+
+   .. image:: ../images/M4-L1-filebrowser-file.png
+      :width: 300pt
