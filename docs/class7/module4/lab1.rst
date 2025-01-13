@@ -43,18 +43,14 @@ In this lab, we will learn about and perform the following:
 
    Click **Download Credential**. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
 
-#. From the lab components view, find the jumphost and click the *Access* button. From the access list, select **File Browser**.
+#. If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
 
-   .. note:: 
-      If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded **kubeconfig** file.
-      To try this, follow the Kubernetes documentation to configure your local kubctl tool.
+   For the purposes of this lab, we will use the jumpbox to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the jumpbox.
 
-       `Organizing Cluster Access Using kubeconfig Files <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
-
-      For the purposes of this lab, we will use the jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the **kubeconfig** file to the jumphost.
+   From the lab components view, find the jumpbox and click the *Access* button. From the access list, select **File Browser**.
 
    .. image:: ../images/M4-L1-filebrowser-launch.png
-      :width: 450pt
+      :width: 650pt
 
 #. Login with *admin/admin* credentials.
 

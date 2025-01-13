@@ -3,11 +3,11 @@ Module 4: Monitoring Operating System Metrics with MQTT and Grafana
 
 **Overview**
 
-This lab will demonstate leveraging vk8s to deploy a workload distributed across the globe and managed as a single application.
+This lab will demonstate leveraging vk8s to deploy a workload distributed across the globe, and managed as a single application.
 
-The application that we will be deploying is an MQTT broker that will be used to collect and publish system metrics.
+To demonstate this capability, we will be deploying is MQTT broker in US East, US West, and Europe.
 
-For this lab exercise we will leveage bash script running on a Jumphost to publish data to MQTT brokers located in US East, US West, and Europe. Data from each region will then be visualized on a Grafana dashboard.
+For this lab exercise we will leveage bash script running on a Jumphost to publish data to collect, and publish system metrics. Data from each region will then be visualized on a Grafana dashboard.
 
 **What is MQTT?**
   Overview
@@ -25,7 +25,7 @@ For this lab exercise we will leveage bash script running on a Jumphost to publi
 
 **Expected Outcome**
 
-By the end of this lab exercise, participants will have used F5 Distrubuted Cloud and 3 globally distributed MQTT brokers and demonstation a working setup that continuously monitors and displays system metrics on a Grafana dashboard.
+By the end of this lab exercise, participants will have used F5 Distrubuted Cloud and three globally distributed MQTT brokers and demonstation a working setup that continuously monitors and displays system metrics on a Grafana dashboard.
 
 .. toctree::
    :maxdepth: 1

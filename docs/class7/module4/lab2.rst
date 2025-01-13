@@ -3,9 +3,10 @@ Lab 2 - Deploy Containers on vK8s and Build Grafana Dashboard
 
 **Exercise 1 - Setup Jumphost to connect to the vk8 cluster**
 
-Environment Setup:
+**Environment Setup**
+To complete this lab section, we'll need to complete the following steps:
 
-- Ensure that the NAMESPACE and KUBECONFIG environment variables are set
+- Ensure that the NAMESPACE and KUBECONFIG environment variables are set.
 - Review the Load Balancer and Origin Server Configuration.
 - Deploy Grafana using docker compose which will be proconfigured to match your namespace name for each of the 3 regions.
 
