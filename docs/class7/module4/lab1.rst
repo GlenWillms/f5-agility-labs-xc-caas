@@ -41,10 +41,6 @@ In this lab, we will learn perform the following:
 
 #. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
 
-#. Click the config kubeconfig is downloaded, and follow the Kubernetes documentation to configure your local kubctl tool.
-
-    `Organizing Cluster Access Using kubeconfig Files <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
-
 #. If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
 
    For the purposes of this lab, we will use the jumpbox to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the jumpbox.
@@ -64,3 +60,4 @@ Within File Browser, click the **Upload** upload icon, `Choose File` and then se
 .. image:: ../images/filebrowser-upload.png
    :width: 300pt
 
+Once completed, you should see the kubeconfig file in the file listing. You can now close the File Browser tab.
