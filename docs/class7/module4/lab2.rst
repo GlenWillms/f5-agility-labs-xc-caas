@@ -6,7 +6,7 @@ Lab 2 - Deploy Containers on vK8s and Build Grafana Dashboard
 **Environment Setup**
 To complete this lab section, we'll need to complete the following steps:
 
-- Ensure that the NAMESPACE
+- Ensure that the NAMESPACE environment variable is set.
 - Review the Load Balancer and Origin Server Configuration.
 - Deploy Grafana using docker compose which will be proconfigured to match your namespace name for each of the 3 regions.
 
@@ -114,11 +114,14 @@ To complete this lab section, we'll need to complete the following steps:
 
    The TCP Load Balancer is configured to use the Origin Pool we just reviewed.
 
-   For the following image, note the following:
-      - This LB is configured to listen on 3 different names:
-         keen-duck.useast.lab-app.f5demos.com
-         keen-duck.europe.lab-app.f5demos.com
-         keen-duck.uswest.lab-app.f5demos.com
+      .. note:: For the following image, note the following:
+
+         This LB is configured to listen on 3 different names:
+
+            keen-duck.useast.lab-app.f5demos.com
+            keen-duck.europe.lab-app.f5demos.com
+            keen-duck.uswest.lab-app.f5demos.com
+
       - The LB is configured to listen on port 8883 and is using SNI.
 
    .. image:: ../images/M4-L2-tcplb-1.png

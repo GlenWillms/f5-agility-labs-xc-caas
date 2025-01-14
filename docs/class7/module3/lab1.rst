@@ -37,4 +37,4 @@ In this first part of the lab, you will create an origin pool pointing to the se
 .. |origin_pool| image:: ../images/m3-origin-pool.png
 .. |origin_pool_add| image:: ../images/m3-add-origin-pools.png
 .. |origin_pool_name| image:: ../images/m3-origin-pool-name-updated.png
-.. |origin_pools_menu| image:: ../images/m3-add-origin-server-updated.png
+.. |origin_pools_menu| image:: ../images/M3-L1-add-origin-server-updated.png
