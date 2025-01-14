@@ -56,13 +56,12 @@ In this lab, we will learn about and perform the following:
 #. Login with *admin/admin* credentials.
 
    .. image:: ../images/M4-L1-filebrowser-login.png
-      :height: 300pt
-
+      :height: 250pt
 
 #. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
 
    .. image:: ../images/M4-L1-filebrowser-upload.png
-      :height: 200pt
+      :height: 150pt
 
    Make sure the **kubeconfig** file appears in File Browser.
 
