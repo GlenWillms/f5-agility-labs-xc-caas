@@ -6,7 +6,7 @@ Lab 2 - Deploy Containers on vK8s and Build Grafana Dashboard
 **Environment Setup**
 To complete this lab section, we'll need to complete the following steps:
 
-- Ensure that the NAMESPACE and KUBECONFIG environment variables are set.
+- Ensure that the NAMESPACE
 - Review the Load Balancer and Origin Server Configuration.
 - Deploy Grafana using docker compose which will be proconfigured to match your namespace name for each of the 3 regions.
 
@@ -32,19 +32,18 @@ To complete this lab section, we'll need to complete the following steps:
          users: null
 
 
-   b. to verify that your file is uploaded. 
+   b. to verify that your file is uploaded.
 
       .. code-block:: bash
 
         ls /srv/filebrowser/
-            ### Your kubeconfig file you uploaded should be listed here.     
-        ves_kind-python_asmith-vk8.yaml
+         ### Your kubeconfig file you uploaded should be listed here:
+         ### ves_kind-python_asmith-vk8.yaml
 
 
    In the example above, the **NAMESPACE** is **kind-python** and the **Virtual K8s** is **asmith-vk8**.
 
-#. **MAY NOT NEED THIS STEP** 
-   From Web Shell, modify and run the following commands to set the NAMESPACE environment variable:
+#. From Web Shell, modify and run the following commands to set the NAMESPACE environment variable:
 
    .. note:: This step is key to ensure the subsequent commands are configured correctly. Environment variables will need to be set each time you launch a new Web Shell.
 
@@ -57,12 +56,14 @@ To complete this lab section, we'll need to complete the following steps:
 
    .. code-block:: bash
 
-    ### PREVIOUS COMMAND export KUBECONFIG=/srv/filebrowser/ves_<YOUR NAMESPACE>\_$NAMESPACE-vk8s.yaml
-    ### Point the KUBECONFIG to the file we found in Step 2b
-    export KUBECONFIG=/srv/filebrowser/ves_kind-python_asmith-vk8.yaml   
+      #Assuming you only have one kubeconfig file in the /srv/filebrowser run:
+      cat /srv/filebrowser/* > ~/.kube/config
 
-    # Let's review again to confirm that we can reach the cluster:
-    kubectl config view
+      #Otherwise, modify and run:
+      #export KUBECONFIG=/path/to/kubeconfig/file
+
+      # Let's review again to confirm that we can reach the cluster:
+      kubectl config view
 
    The output should look like this:
 
@@ -92,164 +93,45 @@ To complete this lab section, we'll need to complete the following steps:
 
    Why isn't there a Workload configured for these Pods?
 
-**Origin Pool Configuration**
+**Review the Load Balancer and Origin Server Configuration**
 
-The Origin Pool will point to the pods on on the vk8s cluster. 
+#. On the Distributed Cloud console and in the **Multi-Cloud App Connect** workspace, under **Manage**, hover over **Load Balancers**, then click **Origin Pools**.
 
-#. On the Distributed Cloud console and in the **Distributed Apps** workspace, under **Manage**, hover over **Load Balancers**, then click **Origin Pools**
+#. Under the **Actions** menu, for the row **adjective-animal-origin** click the **...** and select **Manage Configuration**.
 
-#. Click the **Add Origin Pool** button.
+   .. image:: ../images/M4-L2-originpool.png
+      :width: 400pt
 
-#. On the configuration page, click the JSON button.
+   Note that this origin pool is referencing a K8s service called **mosquitto.adjective-animal**, and is associated with the Virtual Site **appworld2025-k8s-vsite**.
 
-#. In the textual config editor page select the other JSON button, and then select YAML.
+   We've also configured the Origin Pool to use the Endpoint Selection as **Local Endpoints Only**. This means that the Origin Pool will only use the local endpoints in the region where the Origin Pool is configured and will not cross regions. This is useful when you want to ensure that traffic stays local to the region.
 
-#. Click into the main editor window and then press CTRL-A to select all of the prepopulated text.
+#. Next, let's review the TCP Load Balancer to pointed to this Origin Pool.
 
-   Press the DELETE key (or the BACKSPACE key) to remove all the text.
+   In the Distributed Cloud console and in the **Multi-Cloud App Connect** workspace, under **Manage**, hover over **Load Balancers**, then click **TCP Load Balancers**.
 
-   There should only be left a blank line on line 1.
+   Again Under the **Actions** menu, for the row **adjective-animal-lb** for the TCP Load Balancer, click the **...** and select **Manage Configuration**.
 
-#. Copy and paste the following YAML configuration into the editor window:
+   The TCP Load Balancer is configured to use the Origin Pool we just reviewed.
 
-   .. code-block:: yaml
+   For the following image, note the following:
+      - This LB is configured to listen on 3 different names:
+         keen-duck.useast.lab-app.f5demos.com
+         keen-duck.europe.lab-app.f5demos.com
+         keen-duck.uswest.lab-app.f5demos.com
+      - The LB is configured to listen on port 8883 and is using SNI.
 
-      metadata:
-         name: kind-python-mosquitto
-         namespace: kind-python  ## Replace with your namespace
-         labels: {}
-         annotations: {}
-         disable: false
-      spec:
-      origin_servers:
-         - k8s_service:
-            service_name: mosquitto.kind-python  ## Replace with your namespace
-            site_locator:
-               virtual_site:
-                  tenant: f5-xc-lab-app-jqguisgi
-                  namespace: shared
-                  name: appworld2025-k8s-vsite
-                  kind: virtual_site
-            vk8s_networks: {}
-            labels: {}
-      no_tls: {}
-      port: 1883
-      same_as_endpoint_port: {}
-      healthcheck: []
-      loadbalancer_algorithm: LB_OVERRIDE
-      endpoint_selection: LOCAL_ONLY
-
-**TCP Load Balancer Configuration**
-
-The TCP Load Balancer will point to the Origin Pool, which will allow interest access into the MATT containers.
-
-#. On the Distributed Cloud console and in the **Distributed Apps** workspace, under **Manage**, hover over **Load Balancers**, then click **TCP Load Balancers**
-
-#. Click the **Add TCP Load Balancer** button.
-
-#. On the New TCP Load Balancer configuration page, click the JSON button and select YAML as before.
-
-#. Clear any configuration in the editor window as before.
-
-#. Copy and paste the following YAML configuration into the editor window and replace the fields with your namespace.
-
-   .. code-block:: yaml
-
-      metadata:
-        name: kind-python-mqtt ## Replace with your namespace
-        namespace: kind-python ## Replace with your namespace
-        labels: {}
-        annotations: {}
-        disable: false
-      spec:
-        domains:
-          - kind-python.useast.lab-app.f5demos.com ## Replace with your namespace
-          - kind-python.europe.lab-app.f5demos.com ## Replace with your namespace
-          - kind-python.uswest.lab-app.f5demos.com ## Replace with your namespace
-        listen_port: 8883
-        sni: {}
-        dns_volterra_managed: false
-        origin_pools: []
-        origin_pools_weights:
-          - pool:
-              tenant: f5-xc-lab-app-jqguisgi
-              namespace: kind-python      ## Replace with your namespace
-              name: kind-python-mosquitto  ## Replace with Origin Pool name
-              kind: origin_pool
-            weight: 1
-            priority: 1
-            endpoint_subsets: {}
-        advertise_custom:
-          advertise_where:
-            - virtual_site:
-                network: SITE_NETWORK_INSIDE_AND_OUTSIDE
-                virtual_site:
-                  tenant: f5-xc-lab-app-jqguisgi
-                  namespace: shared
-                  name: appworld2025-k8s-vsite
-                  kind: virtual_site
-              use_default_port: {}
-      hash_policy_choice_round_robin: {}
-      idle_timeout: 3600000
-      retract_cluster: {}
-      tls_tcp:
-        tls_cert_params:
-          tls_config:
-            medium_security: {}
-          certificates:
-            - tenant: f5-xc-lab-app-jqguisgi
-                namespace: shared
-                name: caas-lab-certificate
-                kind: certificate
-          no_mtls: {}
-      service_policies_from_namespace: {}
+   .. image:: ../images/M4-L2-tcplb-1.png
+      :width: 400pt
 
 
-**Deploy Grafana**
+   For the following image **Custom Advertise VIP Configuration**, note the following:
+      - We're advertiseing this VIP to the Internet using the virtual site **appworld2025-k8s-vsite**. This will advertise our MQTT service on each of our regions to the Internet.
 
-.. code-block:: bash
+   .. image:: ../images/M4-L2-tcplb-2.png
+      :width: 400pt
 
-  cd ~/caaslab/docker-grafana
-  docker compose up -d
+   .. image:: ../images/M4-L2-tcplb-3.png
+      :width: 400pt
 
-**Access Grafana**
 
-Within the lab components screen, select Access on the Jumphost, and choose Grafana from the dropdown.
-
-Launch Grafana and logon with the username *admin*, and the password *grafana*
-
-Once logged in, navigate to **Dashboards** --> **Services** --> **Distributed Host Stats via MQTT**
-
-On the Dashboard, you should see one chart for each Customer Edge region we deployed to. We haven't sent any data yet, so the charts will be empty.
-
-Note: The Green icons in the image will be an indicator that the connection to the MQTT broker was successful.
-
-.. image:: ../images/grafana-dashboard-empty.png
-   :width: 650pt
-
-**Let's Publish Some Data**
-
-Now that we have the Grafana dashboard setup, we can start publishing data to the MQTT brokers.
-
-From the Web Shell, run the following command to start the data publisher:
-
-.. code-block:: bash
-
-  cd ~/caaslab
-  ./systemstats2mqtt.sh
-
-The script will start publishing data to the MQTT brokers in each region. After a few minutes, you should start to see data on the Grafana dashboard.
-
-In a couple minutes your Web Shell will look like this:
-
-.. image:: ../images/systemstats2mqtt.png
-   :width: 650pt
-
-**Review the Data**
-
-Navigate back to the Grafana dashboard and you should see data populating the charts. If you wait 5 minutes, your dashboard will look something like this:
-
-.. image:: ../images/grafana-dashboard-populated.png
-   :width: 650pt
-
-**Conclusion**
