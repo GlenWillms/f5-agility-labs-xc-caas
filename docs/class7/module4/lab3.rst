@@ -47,5 +47,6 @@ Navigate back to the Grafana dashboard and you should see data populating the ch
    :width: 650pt
 
 **Conclusion**
+Upon successful completion your Grafana dashboard should be populated with near real-time system metrics from your lab's jumpbox.
 
-
+In a real-world scenario could leverage Regional Edge load balancers automatically route the data to the nearest healthy MQTT broker.
