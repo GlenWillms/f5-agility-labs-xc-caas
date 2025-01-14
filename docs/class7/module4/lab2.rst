@@ -135,3 +135,17 @@ To complete this lab section, we'll need to complete the following steps:
       :width: 400pt
 
 
+**Exercise 3 - Deploy Grafana**
+
+In this section, we will deploy Grafana using docker compose. The Grafana dashboard will be preconfigured to match your namespace name for each of the 3 regions.
+
+Our docker compose configuration will deploy Grafana with 3 datasources, one for each region. It will also deploy a Dashboard that will show the system stats for each region using the 3 datasources.
+
+To bring up Grafana, run the following commands:
+
+.. code-block:: bash
+
+  cd ~/caaslab/docker-grafana
+  docker compose up -d
+
+Continue to the next section to access Grafana and view the dashboard.

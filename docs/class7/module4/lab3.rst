@@ -7,6 +7,11 @@ Within the lab components screen, select Access on the Jumphost, and choose Graf
 
 Launch Grafana and logon with the username *admin*, and the password *grafana*
 
+**this screenshot needs adjusted to match the classroom interface**
+
+.. image:: ../images/launchgrafana.png
+  :width: 400pt
+
 Once logged in, navigate to **Dashboards** --> **Services** --> **Distributed Host Stats via MQTT**
 
 On the Dashboard, you should see one chart for each Customer Edge region we deployed to. We haven't sent any data yet, so the charts will be empty.
@@ -43,12 +48,4 @@ Navigate back to the Grafana dashboard and you should see data populating the ch
 
 **Conclusion**
 
-**Access Grafana**
-
-Within the lab
-
-**this screenshot needs adjusted to match the classroom interface**
-
-.. image:: ../images/launchgrafana.png
-  :width: 400pt
 
