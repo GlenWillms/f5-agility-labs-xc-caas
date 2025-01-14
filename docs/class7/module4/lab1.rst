@@ -57,14 +57,12 @@ In this lab, we will learn about and perform the following:
 
    .. image:: ../images/M4-L1-filebrowser-login.png
       :width: 500pt
-      :height: auto
 
 
 #. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
 
    .. image:: ../images/M4-L1-filebrowser-upload.png
       :width: 500pt
-      :height: auto
 
    Make sure the **kubeconfig** file appears in File Browser.
 
