@@ -3,23 +3,28 @@ Lab 3 - Review Results
 
 **Access Grafana**
 
-Within the lab components screen, select Access on the Jumphost, and choose Grafana from the dropdown.
+#. Within the lab components screen, select Access on the Jumphost, and choose Grafana from the dropdown.
 
-Launch Grafana and logon with the username *admin*, and the password *grafana*
+   Launch Grafana and logon with the credentials below:
 
-**this screenshot needs adjusted to match the classroom interface**
+      username: *admin*
+   
+      password: *grafana*
 
-.. image:: ../images/launchgrafana.png
-  :width: 400pt
+   .. image:: ../images/M4-L3-launchgrafana.png
+      :width: 400pt
 
-Once logged in, navigate to **Dashboards** --> **Services** --> **Distributed Host Stats via MQTT**
+#. Once logged in, navigate to **Dashboards** --> **Services** --> **Distributed Host Stats via MQTT**
 
-On the Dashboard, you should see one chart for each Customer Edge region we deployed to. We haven't sent any data yet, so the charts will be empty.
+   On the Dashboard, you should see one chart for each Customer Edge region we deployed to. We haven't sent any data yet, so the charts will be empty.
 
-Note: The Green icons in the image will be an indicator that the connection to the MQTT broker was successful.
+   .. note:: The Green icons in the image will be an indicator that the connection to the MQTT broker was successful.
 
 .. image:: ../images/grafana-dashboard-empty.png
    :width: 650pt
+
+|
+|
 
 **Let's Publish Some Data**
 
@@ -39,12 +44,18 @@ In a couple minutes your Web Shell will look like this:
 .. image:: ../images/systemstats2mqtt.png
    :width: 650pt
 
+|
+|
+
 **Review the Data**
 
 Navigate back to the Grafana dashboard and you should see data populating the charts. If you wait 5 minutes, your dashboard will look something like this:
 
 .. image:: ../images/grafana-dashboard-populated.png
    :width: 650pt
+
+|
+|
 
 **Conclusion**
 Upon successful completion your Grafana dashboard should be populated with near real-time system metrics from your lab's jumpbox.

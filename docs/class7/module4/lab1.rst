@@ -22,13 +22,13 @@ In this lab, we will learn about and perform the following:
 #. Click the distributed apps tile on the F5 Distributed Cloud Services home page.
 
    .. image:: ../images/distributedappclick-updated.png
-      :width: 400pt
+      :width: 500pt
 
 #. Click virtual K8s under the applications section.
 
    .. image:: ../images/distributedappclickvirtualk8s.png
-      :width: 180pt
-
+      :width: 380pt
+      :height: 300pt
 #. Click the three dots under the "Action" column and then click **Kubeconfig**.
 
    .. image:: ../images/distributedappclickvirtualk8kubeconfig-updated.png
@@ -43,28 +43,33 @@ In this lab, we will learn about and perform the following:
 
    Click **Download Credential**. If your browser prompts you for a location to download the file, select a directory you prefer and click **Save**.
 
-#. If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
+#.    From the *Lab Deployments* view, find the Jumphost and click the *Access* button. From the access list, select **File Browser**.
 
-   For the purposes of this lab, we will use the jumpbox to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the jumpbox.
+   .. image:: ../images/M4-L1-filebrowser-launch2.png
+      :width: 500pt
 
-   From the lab components view, find the jumpbox and click the *Access* button. From the access list, select **File Browser**.
 
-   .. image:: ../images/M4-L1-filebrowser-launch.png
-      :width: 650pt
+   .. note::
+      If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
+      For the purposes of this lab, we will use the Jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the Jumphost.
 
 #. Login with *admin/admin* credentials.
 
    .. image:: ../images/M4-L1-filebrowser-login.png
-      :width: 300pt
+      :width: 500pt
+      :height: 300pt
 
 
 #. Within File Browser, click the **Upload** upload icon, `Choose File` and then select the **kubeconfig** file you downloaded. Select this file and complete the upload.
 
    .. image:: ../images/M4-L1-filebrowser-upload.png
-      :width: 300pt
+      :width: 500pt
+      :height: 150pt
 
    Make sure the **kubeconfig** file appears in File Browser.
 
    .. image:: ../images/M4-L1-filebrowser-file.png
-      :width: 300pt
-
+      :width: 500pt
+|
+|
+   Proceed to the next Lab where you'll deploy the MQTT containers to your vk8s cluster and run Grafana on the Jumphost.

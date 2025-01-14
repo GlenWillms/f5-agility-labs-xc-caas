@@ -43,9 +43,13 @@ To complete this lab section, we'll need to complete the following steps:
 
    In the example above, the **NAMESPACE** is **kind-python** and the **Virtual K8s** is **asmith-vk8**.
 
-#. From Web Shell, modify and run the following commands to set the NAMESPACE environment variable:
+#. From Web Shell, modify and run the following command to set the NAMESPACE environment variable:
 
-   .. note:: This step is key to ensure the subsequent commands are configured correctly. Environment variables will need to be set each time you launch a new Web Shell.
+   .. warning:: 
+      
+      This step is key to ensure the subsequent commands are configured correctly with your namespace. 
+      
+      Each time you launch a new Web Shell, the namespace environment variables will need to be set.
 
    .. code-block:: bash
 
@@ -70,7 +74,8 @@ To complete this lab section, we'll need to complete the following steps:
    .. image:: ../images/M4-L2-exp-kubeconfig.png
       :width: 400pt
 
-
+|
+|
 **Exercise 2 - Deploy Containers on vK8s and Add Origin Pool and Load Balancer**
 
 **Deploy Containers on vK8s**
@@ -87,13 +92,20 @@ To complete this lab section, we'll need to complete the following steps:
 
    Click on your vk8 cluster to view the details.
 
-#. Review all the tabs on your Virtual K8s; **Workloads, Deployments, ... Pods.**
+#. Review all the tabs on your Virtual K8s; **Workloads, Deployments, ... Pods.**  To see any hidden tabs on the list, click the button with right pointing chevron.
 
-   Which ones have something configured?
+   .. image:: ../images/M4-L2-cluster-configs.png
+      :width: 650pt
 
-   Why isn't there a Workload configured for these Pods?
+|
 
-**Review the Load Balancer and Origin Server Configuration**
+   **Questions:**
+
+      Which tabs show that configurations have been added by the previous command?
+
+      Why isn't there a Workload configured for these Pods?
+
+**Exercise 3 - Review the Origin Pool and the TCP Load Balancer Configuration**
 
 #. On the Distributed Cloud console and in the **Multi-Cloud App Connect** workspace, under **Manage**, hover over **Load Balancers**, then click **Origin Pools**.
 
@@ -106,49 +118,69 @@ To complete this lab section, we'll need to complete the following steps:
 
    We've also configured the Origin Pool to use the Endpoint Selection as **Local Endpoints Only**. This means that the Origin Pool will only use the local endpoints in the region where the Origin Pool is configured and will not cross regions. This is useful when you want to ensure that traffic stays local to the region.
 
-#. Next, let's review the TCP Load Balancer to pointed to this Origin Pool.
+#. Next, let's review the TCP Load Balancer which points to the Origin Pool we just saw.
 
    In the Distributed Cloud console and in the **Multi-Cloud App Connect** workspace, under **Manage**, hover over **Load Balancers**, then click **TCP Load Balancers**.
 
-   Again Under the **Actions** menu, for the row **adjective-animal-lb** for the TCP Load Balancer, click the **...** and select **Manage Configuration**.
+#. Again, under the **Actions** menu, for the row **adjective-animal-lb** for the TCP Load Balancer, click the **...** and select **Manage Configuration**.
 
    The TCP Load Balancer is configured to use the Origin Pool we just reviewed.
 
-      .. note:: For the following image, note the following:
+   Your load balancers is configured to listen 3 different names:
 
-         This LB is configured to listen on 3 different names:
+      - keen-duck.useast.lab-app.f5demos.com
+      - keen-duck.europe.lab-app.f5demos.com
+      - keen-duck.uswest.lab-app.f5demos.com
 
-            keen-duck.useast.lab-app.f5demos.com
-            keen-duck.europe.lab-app.f5demos.com
-            keen-duck.uswest.lab-app.f5demos.com
-
-      - The LB is configured to listen on port 8883 and is using SNI.
+   The LB is also configured to listen on port 8883 and is using SNI.
 
    .. image:: ../images/M4-L2-tcplb-1.png
       :width: 400pt
 
+|
 
-   For the following image **Custom Advertise VIP Configuration**, note the following:
-      - We're advertiseing this VIP to the Internet using the virtual site **appworld2025-k8s-vsite**. This will advertise our MQTT service on each of our regions to the Internet.
+   From the following image, in the **Custom Advertise VIP Configuration**, we are advertiseing this VIP to the Internet using the virtual site **appworld2025-k8s-vsite**. This will advertise our MQTT service on each of our regions to the Internet.
 
    .. image:: ../images/M4-L2-tcplb-2.png
       :width: 400pt
+
+|
 
    .. image:: ../images/M4-L2-tcplb-3.png
       :width: 400pt
 
 
-**Exercise 3 - Deploy Grafana**
+**Exercise 4 - Deploy Grafana**
 
 In this section, we will deploy Grafana using docker compose. The Grafana dashboard will be preconfigured to match your namespace name for each of the 3 regions.
 
 Our docker compose configuration will deploy Grafana with 3 datasources, one for each region. It will also deploy a Dashboard that will show the system stats for each region using the 3 datasources.
 
-To bring up Grafana, run the following commands:
+#. Return to the Web Shell and run the docker command to see what containers are already running.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-  cd ~/caaslab/docker-grafana
-  docker compose up -d
+      docker ps -a
 
-Continue to the next section to access Grafana and view the dashboard.
+   We see that docker is already running with some containers, but Grafana is yet to be deployed.
+
+#. Let's view the docker-grafana.yaml file to see what will be deployed.
+
+   .. code-block:: bash
+
+      cd ~/caaslab/docker-grafana
+      cat docker-compose.yaml
+
+   Notice that the environment NAMESPACE variable we set earlier will be used as a docker variable when creating the Grafana container.
+
+#. To bring up Grafana, from Web Shell run the following commands:
+
+   .. code-block:: bash
+
+      cd ~/caaslab/docker-grafana
+      docker compose up -d
+
+
+Continue to Lab3 to access Grafana, publish data to the MQTT broker and view the dashboard.
+
+Optional: If you have time, review the folders under the "provisioning" directory to find the configuration files for the datasources and the dashboard.
