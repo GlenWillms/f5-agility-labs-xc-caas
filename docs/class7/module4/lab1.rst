@@ -27,8 +27,9 @@ In this lab, we will learn about and perform the following:
 #. Click virtual K8s under the applications section.
 
    .. image:: ../images/distributedappclickvirtualk8s.png
-      :width: 380pt
       :height: 300pt
+
+
 #. Click the three dots under the "Action" column and then click **Kubeconfig**.
 
    .. image:: ../images/distributedappclickvirtualk8kubeconfig-updated.png
