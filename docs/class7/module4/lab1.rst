@@ -46,13 +46,12 @@ In this lab, we will learn about and perform the following:
 
 #.    From the *Lab Deployments* view, find the Jumphost and click the *Access* button. From the access list, select **File Browser**.
 
-   .. image:: ../images/M4-L1-filebrowser-launch2.png
-      :width: 500pt
+      .. image:: ../images/M4-L1-filebrowser-launch2.png
+         :width: 500pt
 
-
-   .. note::
-      If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
-      For the purposes of this lab, we will use the Jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the Jumphost.
+      .. note::
+         If you have kubectl available on your computer, you would be able to interact with your vK8s cluster using the downloaded kubeconfig file.
+         For the purposes of this lab, we will use the Jumphost to interact with the vK8s cluster. Before we can do that, we need to upload the kubeconfig file to the Jumphost.
 
 #. Login with *admin/admin* credentials.
 
