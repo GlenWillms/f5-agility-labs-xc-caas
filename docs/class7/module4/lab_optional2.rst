@@ -30,7 +30,7 @@ The Origin Pool will point to the pods on on the vk8s cluster.
          annotations: {}
          disable: false
       spec:
-      origin_servers:
+        origin_servers:
          - k8s_service:
             service_name: mosquitto.kind-python  ## Replace with your namespace
             site_locator:
@@ -41,12 +41,12 @@ The Origin Pool will point to the pods on on the vk8s cluster.
                   kind: virtual_site
             vk8s_networks: {}
             labels: {}
-      no_tls: {}
-      port: 1883
-      same_as_endpoint_port: {}
-      healthcheck: []
-      loadbalancer_algorithm: LB_OVERRIDE
-      endpoint_selection: LOCAL_ONLY
+        no_tls: {}
+        port: 1883
+        same_as_endpoint_port: {}
+        healthcheck: []
+        loadbalancer_algorithm: LB_OVERRIDE
+        endpoint_selection: LOCAL_ONLY
 
 **TCP Load Balancer Configuration**
 
@@ -98,17 +98,17 @@ The TCP Load Balancer will point to the Origin Pool, which will allow interest a
                   name: appworld2025-k8s-vsite
                   kind: virtual_site
               use_default_port: {}
-      hash_policy_choice_round_robin: {}
-      idle_timeout: 3600000
-      retract_cluster: {}
-      tls_tcp:
-        tls_cert_params:
-          tls_config:
-            medium_security: {}
-          certificates:
-            - tenant: f5-xc-lab-app-jqguisgi
-                namespace: shared
-                name: caas-lab-certificate
-                kind: certificate
-          no_mtls: {}
-      service_policies_from_namespace: {}
+        hash_policy_choice_round_robin: {}
+        idle_timeout: 3600000
+        retract_cluster: {}
+        tls_tcp:
+          tls_cert_params:
+            tls_config:
+              medium_security: {}
+            certificates:
+              - tenant: f5-xc-lab-app-jqguisgi
+                  namespace: shared
+                  name: caas-lab-certificate
+                  kind: certificate
+            no_mtls: {}
+        service_policies_from_namespace: {}
