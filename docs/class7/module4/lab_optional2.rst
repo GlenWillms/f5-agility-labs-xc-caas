@@ -107,8 +107,8 @@ The TCP Load Balancer will point to the Origin Pool, which will allow interest a
               medium_security: {}
             certificates:
               - tenant: f5-xc-lab-app-jqguisgi
-                  namespace: shared
-                  name: caas-lab-certificate
-                  kind: certificate
+                namespace: shared
+                name: caas-lab-certificate
+                kind: certificate
             no_mtls: {}
         service_policies_from_namespace: {}
