@@ -2,6 +2,7 @@ Lab 2 - Deploy Containers on vK8s and Build Grafana Dashboard
 =============================================================
 
 **Exercise 1 - Setup Jumphost to connect to the vk8 cluster**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Environment Setup**
 To complete this lab section, we'll need to complete the following steps:
