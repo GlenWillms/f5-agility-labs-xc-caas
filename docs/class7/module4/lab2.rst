@@ -109,6 +109,7 @@ To complete this lab section, we'll need to complete the following steps:
 
    .. image:: ../images/M4-L2-cluster-configs.png
       :width: 650pt
+      :class: no-scaled-link
 
 |
 

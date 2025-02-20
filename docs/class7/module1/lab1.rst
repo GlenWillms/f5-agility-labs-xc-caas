@@ -144,7 +144,7 @@ Attendees will now be presented the Home page of the F5 Distributed Cloud Consol
    namespace that you have been assigned. It will be located in the portion of the URI path
    between */namespaces/* and */sites/* as shown in this example below.
    
-   Write down or copy off your namespace as it will be used throughout the lab exercises that follow. Your will be different
+   Write down or copy off your unique namespace as it will be used throughout the lab exercises that follow.
 
    .. image:: ../images/M1-L1-mcac-namespace.png
       :width: 400pt
@@ -170,33 +170,50 @@ Attendees will now be presented the Home page of the F5 Distributed Cloud Consol
 
 .. |intro001| image:: ../images/intro-01.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro002| image:: ../images/intro-02.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro003| image:: ../images/intro-03.png
    :width: 800px
+   :class: no-scaled-link
+
 .. |intro004| image:: ../images/intro-04.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro005| image:: ../images/intro-05.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro006| image:: ../images/intro-06.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro007| image:: ../images/intro-07.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro008| image:: ../images/intro-08.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro009| image:: ../images/intro-09.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro010| image:: ../images/intro-10.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro011| image:: ../images/intro-11.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro012| image:: ../images/intro-12.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro013| image:: ../images/intro-13.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro014| image:: ../images/intro-14.png
    :width: 800px
+   :class: no-scaled-link
 .. |intro015| image:: ../images/intro-15.png
    :width: 800px
+   :class: no-scaled-link
 .. |labbgn| image:: ../images/labbgn.png
    :width: 800px
+   :class: no-scaled-link

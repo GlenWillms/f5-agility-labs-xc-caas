@@ -30,12 +30,14 @@ In this lab, we will learn the following:
 
    .. image:: ../images/distributedappclick.png
       :width: 400pt
+      :class: no-scaled-link
+
 
 #. Within the Distributed Apps navigation menu and under **Applications**, click on **Virtual Sites**.
 
    .. image:: ../images/distributedappclickvirtualsite.png
       :width: 250pt
-
+      :class: no-scaled-link
 
 #. Locate the Virtual Site named *appworld2025-k8s-vsite*.
 
@@ -50,11 +52,13 @@ In this lab, we will learn the following:
 
    .. image:: ../images/distributedappclickagilityk8svsite.png
       :width: 400pt
+      :class: no-scaled-link
 
 #. With your mouse hover over **appworld2025-vpc-site-one**
 
    .. image:: ../images/distributedappclickvpcsiteone.png
       :width: 400pt
+      :class: no-scaled-link
 
 #. You can see a summary of stats and configurations for site *appworld2025-vpc-site-one*. Notice the labels used to deploy the site. 
 
@@ -67,12 +71,14 @@ In this lab, we will learn the following:
 
    .. image:: ../images/distributedappclickvpcsiteoneexploresite-updated.png
       :width: 400pt
+      :class: no-scaled-link
 
 #. On this flyout, click **appworld2025-vpc-site-one**.  The **App Traffic** dashboard for *appworld2025-vpc-site-one* provides helpful information for application metrics, Pods, Pod health,
    deployment status, etc. Spend some time exploring the different tabs. Of course, there is no information because we have not deployed any workload on this site.
 
    .. image:: ../images/distributedappclickvpcsiteoneexploresite2-updated.png
       :width: 400pt
+      :class: no-scaled-link
 
 **Exercise 2 - Create a Virtual K8s**
 
@@ -80,26 +86,31 @@ In this lab, we will learn the following:
 
    .. image:: ../images/distributedappclickvirtualk8s.png
       :width: 250pt
+      :class: no-scaled-link
 
 #. There are currently no Virtual K8s, so let's create one! Click **Add Virtual K8s**
 
    .. image:: ../images/distributedappclickaddvirtualk8s.png
       :width: 250pt
+      :class: no-scaled-link
 
 #. Enter the site **Name** using your Firstname initial and Lastname altogether and append "-vk8" at the end. Ex: For Andrew Smith, the site name will be *"asmith-vk8"* (without the quotes!)
 
    .. image:: ../images/distributedappclickvirtualk8ssettings.png
       :width: 600pt
+      :class: no-scaled-link
 
 #. Click the **Add Item** button in the *Virtual Sites* section
 
    .. image:: ../images/distributedappclickvirtualk8ssettings2.png
       :width: 450pt
+      :class: no-scaled-link
 
 #. Select the `shared/appworld2025-k8s-vsite` site from the dropdown.
 
    .. image:: ../images/distributedappclickvirtualk8ssettings3.png
       :width: 450pt
+      :class: no-scaled-link
 
 #. Click the **Save and Exit** button at the bottom of the page.
 
@@ -108,8 +119,12 @@ In this lab, we will learn the following:
 
    .. image:: ../images/distributedappclickvirtualk8sstatus-in-progress.png
       :width: 600pt
+      :class: no-scaled-link
 
    Your virtual K8s is now ready!
 
    .. image:: ../images/distributedappclickvirtualk8sstatus-updated.png
       :width: 600pt
+      :class: no-scaled-link
+
+   You're ready to deploy your first workload on the virtual K8s cluster. Continue to the next module.
